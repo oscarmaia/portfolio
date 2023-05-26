@@ -24,7 +24,6 @@ function App() {
       <GlobalStyle theme={theme} />
       <Routes>
         <Route path="/" element={<Hello />} />
-        <Route path="/page2" element={<Page2 />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </>
