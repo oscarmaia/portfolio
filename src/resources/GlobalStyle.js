@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { DarkTheme, LightTheme } from "./Theme";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -28,8 +29,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-    background-color: ${(props) => (props.theme === true ? "black" : "white")};
-    color: ${(props) => (props.theme === true ? "white" : "black")}
+    background-color: ${(props) =>
+      props.theme === true ? DarkTheme.bg : LightTheme.bg};
+    color: ${(props) => (props.theme === true ? DarkTheme.fg : LightTheme.fg)}
 }
 ol, ul {
 	list-style: none;

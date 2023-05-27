@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
-import { useThemeUpdate } from "../context/ThemeContext";
+import { useTheme, useThemeUpdate } from "../context/ThemeContext";
 
-export default function Hello(props) {
-  const toggle = useThemeUpdate();
-  console.log(props);
+export default function Hello() {
   return (
     <>
-      <button onClick={toggle}>Toggle</button>
-      <h1>MUDAR COR DO FUNDO</h1>
-      <Link to={'/page2'}>go to page 2</Link>
+      <h1>Home</h1>
     </>
   );
 }

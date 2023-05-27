@@ -5,7 +5,7 @@ import Hello from "./pages/Hello";
 import GlobalStyle from "./resources/GlobalStyle";
 import PageNotFound from "./pages/PageNotFound";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
-import Page2 from "./pages/Page2";
+import Header from "./components/Header";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,6 +22,7 @@ function App() {
   return (
     <>
       <GlobalStyle theme={theme} />
+      <Header />
       <Routes>
         <Route path="/" element={<Hello />} />
         <Route path="/*" element={<PageNotFound />} />
