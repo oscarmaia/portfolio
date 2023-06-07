@@ -1,14 +1,24 @@
 import styled from "styled-components";
+import { DarkTheme, LightTheme } from "../../resources/Theme";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function Tech({ name }) {
-  return <Container>{name}</Container>;
+  const isDarkTheme = useTheme();
+  return (
+    <Container isDarkTheme={isDarkTheme}>
+      <span>{name}</span>
+    </Container>
+  );
 }
 
 const Container = styled.div`
   width: fit-content;
-  white-space: nowrap;
   padding: 0.3rem;
+  margin: 0.2rem;
   border-radius: 0.2rem;
-  background-color: aquamarine;
-  
+  background-color: ${(props) =>
+    props.isDarkTheme ? DarkTheme.detailBg : LightTheme.detailBg};
+  span {
+    font-size: 0.8em;
+  }
 `;
