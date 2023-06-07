@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { Link as LinkScroll } from "react-scroll";
 import pdf from "../resources/Oscar_Maia_CV.pdf";
+import { useTheme } from "../context/ThemeContext";
+import { DarkTheme, LightTheme } from "../resources/Theme";
 
 export default function HomePage() {
   const openPdf = () => {
     window.open(pdf, "_blank");
   };
+  const isDarkTheme = useTheme();
   return (
     <ApresentationContainer>
       <div>
@@ -17,9 +20,9 @@ export default function HomePage() {
           Um Desenvolvedor <strong>Full Stack!</strong>
         </h2>
         <span>
-          Aqui você encontrará algunbs dos meus projetos e mais sobre mim.
+          Aqui você encontrará alguns dos meus projetos.
         </span>
-        <ButtonsContainer>
+        <ButtonsContainer isDarkTheme={isDarkTheme}>
           <LinkScroll
             activeClass="active"
             to="projects"
@@ -43,4 +46,19 @@ const ApresentationContainer = styled.div`
   justify-content: flex-start;
 `;
 
-const ButtonsContainer = styled.div``;
+const ButtonsContainer = styled.div`
+  button {
+    cursor: pointer;
+    padding: 0.3rem;
+    margin: 0.1rem;
+    border-radius: 0.2rem;
+    background-color: ${(props) =>
+      props.isDarkTheme ? DarkTheme.detailBg : LightTheme.detailBg};
+    span {
+      font-size: 0.8em;
+    }
+    :hover {
+      box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.6);
+    }
+  }
+`;
