@@ -99,6 +99,8 @@ export default function ProjectList() {
           image={p.image}
           techs={p.techs}
           key={index}
+          github={p.github}
+          deploy={p.deploy}
         />
       ))}
     </ProjectsContainer>
