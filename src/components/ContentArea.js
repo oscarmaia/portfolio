@@ -3,17 +3,18 @@ import styled from "styled-components";
 export default function ContentArea({ children, id }) {
   return (
     <ContainerCentral id={id}>
-      <Container>{children}</Container>
+      {<Container id={`${id} children`}>{children}</Container>}
     </ContainerCentral>
   );
 }
 
 const ContainerCentral = styled.div`
-  width: 80%;
+  width: 100%;
   min-height: 100vh;
   margin: auto;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 767px) {
     /* Styles for small mobile devices (up to 767px) */
@@ -34,7 +35,5 @@ const ContainerCentral = styled.div`
 `;
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  width: 80%;
 `;
