@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import ContentArea from "../components/ContentArea";
+import { Link as LinkScroll } from "react-scroll";
+import pdf from "../resources/Oscar_Maia_CV.pdf";
 
 export default function HomePage() {
+  const openPdf = () => {
+    window.open(pdf, "_blank");
+  };
   return (
-    <>
-      <ContentArea id={"home"}>
+    <ApresentationContainer>
+      <div>
         <h1>
           Olá, eu sou <strong>Oscar Maia</strong>
         </h1>
@@ -17,21 +20,27 @@ export default function HomePage() {
           Aqui você encontrará algunbs dos meus projetos e mais sobre mim.
         </span>
         <ButtonsContainer>
-          <Link to={"/projects"}>
-            <button>Projetos</button>
-          </Link>
-          <a
-            href="https://drive.google.com/file/d/1BoMa9ya9eAD8Y1WQg9G05oHd6pfy57v3/view?usp=drive_link"
-            target="_blank"
+          <LinkScroll
+            activeClass="active"
+            to="projects"
+            spy={true}
+            smooth={true}
+            offset={-60}
+            duration={500}
           >
-            <button>Currículo</button>
-          </a>
+            <button>Projetos</button>
+          </LinkScroll>
+          <button onClick={openPdf}>Currículo</button>
         </ButtonsContainer>
-      </ContentArea>
-      <ContentArea id={"projects"}>SEÇÃO DE PROJETOS LINDOS MARAVILHOS DO OSCARZINHO LINDO</ContentArea>
-      <ContentArea id={"contacts"}>SEÇÃO DE CONTATOS</ContentArea>
-    </>
+      </div>
+    </ApresentationContainer>
   );
 }
+
+const ApresentationContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+`;
 
 const ButtonsContainer = styled.div``;
