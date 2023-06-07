@@ -4,8 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyle from "./resources/GlobalStyle";
 import PageNotFound from "./pages/PageNotFound";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
-import Header from "./components/Header";
-import HomePage from "./pages/HomePage";
+import Site from "./pages/Site";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,9 +21,9 @@ function App() {
   return (
     <>
       <GlobalStyle theme={theme} />
-      <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Site />} />
+        <Route path="/pdf" />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </>
