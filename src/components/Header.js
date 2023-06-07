@@ -2,23 +2,26 @@ import styled from "styled-components";
 import { useTheme, useThemeUpdate } from "../context/ThemeContext";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { DarkTheme, LightTheme } from "../resources/Theme";
-import { Link } from "react-router-dom";
-import { Link as LinkScroll, animateScroll } from "react-scroll";
+import { Link as LinkScroll } from "react-scroll";
 
 export default function Header() {
   const isDarkTheme = useTheme();
   const toggle = useThemeUpdate();
-  function scrollToTop() {
-    animateScroll.scrollToTop();
-  }
-  function scrollToBottom() {
-    animateScroll.scrollToBottom();
-  }
+
   return (
     <HeaderContainer isDarkTheme={isDarkTheme}>
       <CenterContainer>
         <LeftContainer>
-          <h1 onClick={scrollToTop}>OSCAR MAIA</h1>
+        <LinkScroll
+            activeClass="active"
+            to="home"
+            spy={true}
+            smooth={true}
+            offset={0}
+            duration={500}
+          >
+            OSCAR MAIA
+          </LinkScroll>
         </LeftContainer>
         <RightContainer>
           <LinkScroll
@@ -26,7 +29,7 @@ export default function Header() {
             to="projects"
             spy={true}
             smooth={true}
-            offset={0}
+            offset={-60}
             duration={500}
           >
             Projetos
@@ -75,7 +78,7 @@ const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 1rem 0rem 1rem 0rem;
   z-index: 999;
 
   @media screen and (max-width: 767px) {
@@ -95,13 +98,16 @@ const HeaderContainer = styled.div`
     /* Add your large mobile-specific styles here */
   }
 `;
+
 const CenterContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 80%;
 `;
+
 const LeftContainer = styled.div``;
+
 const RightContainer = styled.div`
   display: flex;
   align-items: center;
