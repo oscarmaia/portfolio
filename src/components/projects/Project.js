@@ -31,6 +31,7 @@ export default function Project({
       <h1>{title}</h1>
       <ImageContainer>
         <img src={image} alt={`${title} site`}></img>
+      </ImageContainer>
         <ButtonsContainer isActive={isActive} isDarkTheme={isDarkTheme}>
           <a href={github} target="_blank" rel="noreferrer">
             <button>
@@ -44,7 +45,6 @@ export default function Project({
             </button>
           </a>
         </ButtonsContainer>
-      </ImageContainer>
       <DescriptionContainer isDarkTheme={isDarkTheme}>
         <span>{description}</span>
       </DescriptionContainer>
@@ -87,6 +87,10 @@ const Container = styled.div`
 `;
 
 const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   box-sizing: border-box;
   width: 100%;
   height: 13.5rem;
@@ -94,13 +98,13 @@ const ImageContainer = styled.div`
     border-radius: 0.5rem;
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 `;
 
 const DescriptionContainer = styled.div`
   box-sizing: border-box;
   width: 100%;
-  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
   background-color: ${(props) =>
@@ -147,16 +151,15 @@ const TechsContainer = styled.div`
 const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 100%;
   button {
     cursor: pointer;
     position: relative;
     :hover {
       box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.6);
     }
-    bottom: 25px;
     transition: opacity 0.5s ease;
     opacity: ${(props) => (props.isActive ? 1 : 0)};
-
     padding: 0.3rem;
     margin: 0.2rem;
     border-radius: 0.2rem;
