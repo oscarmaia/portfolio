@@ -103,8 +103,13 @@ export default function ProjectList() {
 const ProjectsContainer = styled.div`
   width: 100%;
   display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   justify-items: center;
-  align-items: center;
+  align-items: stretch; /* Forces all cards in a row to the same height */
+  
+  @media screen and (max-width: 480px) {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+    gap: 1rem;
+  }
 `;

@@ -1,11 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 import { DarkTheme, LightTheme } from "./Theme";
-<style>
-  @import
-  url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-</style>;
 
 const GlobalStyle = createGlobalStyle`
+* {
+  box-sizing: border-box;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -31,12 +31,20 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
+}
 body, button {
-	font-family: 'Roboto', sans-serif;
-	line-height: 1;
+	font-family: 'Inter', sans-serif;
+	line-height: 1.5;
     background-color: ${(props) =>
-      props.theme === true ? DarkTheme.bg : LightTheme.bg};
+    props.theme === true ? DarkTheme.bg : LightTheme.bg};
     color: ${(props) => (props.theme === true ? DarkTheme.fg : LightTheme.fg)};
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 ol, ul {
 	list-style: none;
@@ -56,19 +64,18 @@ table {
 /* Hide the scroll bar for the container */
   /* Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
-    width: 9px;
+    width: 6px;
   }
 
   *::-webkit-scrollbar-track {
     background: ${(props) =>
-      props.theme === true ? DarkTheme.detailBg : LightTheme.detailBg};
+    props.theme === true ? DarkTheme.bg : LightTheme.bg};
   }
 
   *::-webkit-scrollbar-thumb {
     background-color: ${(props) =>
-      props.theme === true ? DarkTheme.bg : LightTheme.bg};
-    border-radius: 9px;
-    border: 1px none #ffffff;
+    props.theme === true ? DarkTheme.detailBg : LightTheme.detailBg};
+    border-radius: 6px;
   }
 `;
 export default GlobalStyle;
