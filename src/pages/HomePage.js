@@ -1,26 +1,34 @@
 import styled from "styled-components";
 import { Link as LinkScroll } from "react-scroll";
-import pdf from "../resources/Oscar_Maia_CV.pdf";
+import pdfEN from "../resources/Oscar_Maia_CV_EN.pdf";
+import pdfPT from "../resources/Oscar_Maia_CV_PT.pdf";
 import { useTheme } from "../context/ThemeContext";
 import { DarkTheme, LightTheme } from "../resources/Theme";
+import { useTranslation } from "react-i18next";
 
 export default function HomePage() {
+  const { t, i18n } = useTranslation();
+
   const openPdf = () => {
-    window.open(pdf, "_blank");
+    if (i18n.language.startsWith("pt")) {
+      window.open(pdfPT, "_blank");
+    } else {
+      window.open(pdfEN, "_blank");
+    }
   };
   const isDarkTheme = useTheme();
   return (
     <ApresentationContainer isDarkTheme={isDarkTheme}>
       <div>
         <h1>
-          Olá, eu sou <strong>Oscar Maia</strong>
+          {t("home.greeting")}<strong>Oscar Maia</strong>
         </h1>
         <br />
         <h2>
-          Um Desenvolvedor <strong>Full Stack!</strong>
+          {t("home.rolePrefix")}<strong>{t("home.roleHighlight")}</strong>
         </h2>
         <span>
-          Aqui você encontrará alguns dos meus projetos.
+          {t("home.description")}
         </span>
         <ButtonsContainer isDarkTheme={isDarkTheme}>
           <LinkScroll
@@ -31,9 +39,9 @@ export default function HomePage() {
             offset={-60}
             duration={500}
           >
-            <button>Projetos</button>
+            <button>{t("home.projectsBtn")}</button>
           </LinkScroll>
-          <button onClick={openPdf}>Currículo</button>
+          <button onClick={openPdf}>{t("home.resumeBtn")}</button>
         </ButtonsContainer>
       </div>
     </ApresentationContainer>

@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyle from "./resources/GlobalStyle";
 import PageNotFound from "./pages/PageNotFound";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import "./i18n/i18n";
 import Site from "./pages/Site";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

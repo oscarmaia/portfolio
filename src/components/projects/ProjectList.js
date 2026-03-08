@@ -7,13 +7,14 @@ import trackit from "../../resources/images/projects/trackit.png";
 import zaprecall from "../../resources/images/projects/zaprecall.png";
 import forca from "../../resources/images/projects/forca.png";
 import instagram from "../../resources/images/projects/instagram.png";
+import { useTranslation } from "react-i18next";
 
 export default function ProjectList() {
+  const { t } = useTranslation();
   const projects = [
     {
       title: "Driven.t",
-      description:
-        "Um app whitelabel desenvolvido para gerenciamento de eventos.",
+      description: t("projects.drivent.desc"),
       image: drivent,
       techs: [
         "TypeScript",
@@ -31,8 +32,7 @@ export default function ProjectList() {
     },
     {
       title: "MyWallet",
-      description:
-        "Um app desenvolvido para gerenciar lançamentos diários para controle de finanças.",
+      description: t("projects.mywallet.desc"),
       image: mywallet,
       techs: ["JavaScript", "ReactJS", "NodeJS", "MongoDB"],
       github: "https://github.com/oscarmaia/projeto14-mywallet-front",
@@ -40,8 +40,7 @@ export default function ProjectList() {
     },
     {
       title: "CineFlex",
-      description:
-        "Um app desenvolvido para gerenciar agendamentos de ingressos em salas de cinema.",
+      description: t("projects.cineflex.desc"),
       image: cineflex,
       techs: ["JavaScript", "ReactJS", "NodeJS", "MongoDB"],
       github: "https://github.com/oscarmaia/projeto10-cineflex",
@@ -49,7 +48,7 @@ export default function ProjectList() {
     },
     {
       title: "TrackIt",
-      description: "Um app para cadastro de hábitos e acompanhamento deles.",
+      description: t("projects.trackit.desc"),
       image: trackit,
       techs: ["JavaScript", "ReactJS", "NodeJS"],
       github: "https://github.com/oscarmaia/projeto11-trackit",
@@ -57,26 +56,23 @@ export default function ProjectList() {
     },
     {
       title: "ZapRecall",
-      description:
-        "Um app de Flashcards, Flashcards são cartões de contém uma pergunta/afirmação na sua frente e uma resposta atrás. É possível utilizá-los para treinar sua memória com as metodologias Active Recall e Spaced Repetition ",
+      description: t("projects.zaprecall.desc"),
       image: zaprecall,
       techs: ["JavaScript", "ReactJS", "NodeJS"],
       github: "https://github.com/oscarmaia/projeto9-zaprecall",
       deploy: "http://projeto9-zaprecall-rho.vercel.app/",
     },
     {
-      title: "Jogo da Forca",
-      description:
-        "A pessoa jogadora tem que adivinhar uma palavra chutando letra por letra e, se cometer 6 erros, ela perde o jogo. Caso adivinhe a palavra antes disso, ela ganha.",
+      title: t("projects.forca.title"),
+      description: t("projects.forca.desc"),
       image: forca,
       techs: ["JavaScript", "ReactJS", "NodeJS"],
       github: "https://github.com/oscarmaia/projeto8-jogoforca",
       deploy: "http://projeto8-jogoforca-c187.vercel.app/",
     },
     {
-      title: "Clone Instagram",
-      description:
-        "Pequeno clone do layout do instagram para testar a componetização do ReactJS, esse projeto foi apenas uma prova de conceito para entender como funcionava o mundo do ReactJS",
+      title: t("projects.instagram.title"),
+      description: t("projects.instagram.desc"),
       image: instagram,
       techs: ["JavaScript", "ReactJS", "NodeJS"],
       github: "https://github.com/oscarmaia/projeto7-instagramreact",

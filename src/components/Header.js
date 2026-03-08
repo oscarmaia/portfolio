@@ -5,14 +5,20 @@ import { DarkTheme, LightTheme } from "../resources/Theme";
 import { Link as LinkScroll } from "react-scroll";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
   const isDarkTheme = useTheme();
   const toggleTheme = useThemeUpdate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
+  const handleLanguageChange = (e) => {
+    i18n.changeLanguage(e.target.value);
+  };
 
   return (
     <HeaderContainer isDarkTheme={isDarkTheme}>
@@ -41,7 +47,7 @@ export default function Header() {
             duration={500}
             onClick={closeMobileMenu}
           >
-            Projetos
+            {t("header.projects")}
           </LinkScroll>
 
           <LinkScroll
@@ -53,11 +59,15 @@ export default function Header() {
             duration={500}
             onClick={closeMobileMenu}
           >
-            Contatos
+            {t("header.contacts")}
           </LinkScroll>
         </NavLinks>
 
         <ControlsContainer>
+          <LanguageSelect value={i18n.language.split('-')[0] || 'en'} onChange={handleLanguageChange} isDarkTheme={isDarkTheme}>
+            <option value="en">🇺🇸 EN</option>
+            <option value="pt">🇧🇷 PT</option>
+          </LanguageSelect>
           <DarkModeSwitch
             checked={!isDarkTheme}
             onChange={toggleTheme}
@@ -197,6 +207,47 @@ const ControlsContainer = styled.div`
   align-items: center;
   gap: 1rem;
   z-index: 1001; /* Above mobile menu */
+
+  @media screen and (max-width: 480px) {
+    gap: 0.5rem;
+  }
+`;
+
+const LanguageSelect = styled.select`
+  background: transparent;
+  border: 1px solid ${(props) =>
+    props.isDarkTheme ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)'};
+  color: ${(props) => (props.isDarkTheme ? DarkTheme.fg : LightTheme.fg)};
+  border-radius: 4px;
+  padding: 0.2rem 1.8rem 0.2rem 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="${(props) => props.isDarkTheme ? '%23f8fafc' : '%231e293b'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.2rem center;
+  background-size: 1rem;
+
+  option {
+    background: ${(props) => (props.isDarkTheme ? DarkTheme.bg : LightTheme.bg)};
+    color: ${(props) => (props.isDarkTheme ? DarkTheme.fg : LightTheme.fg)};
+    font-size: 1rem;
+  }
+
+  &:hover {
+    background-color: ${(props) =>
+    props.isDarkTheme ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)'};
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0.1rem 1.2rem 0.1rem 0.3rem;
+    font-size: 0.85rem;
+    background-size: 0.8rem;
+    background-position: right 0.1rem center;
+  }
 `;
 
 const MobileMenuIcon = styled.div`

@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import { useTheme } from "../context/ThemeContext";
 import { DarkTheme, LightTheme } from "../resources/Theme";
+import { useTranslation } from "react-i18next";
 
 export default function ContactPage() {
   const isDarkTheme = useTheme();
+  const { t } = useTranslation();
   return (
     <Container id="contacts" isDarkTheme={isDarkTheme}>
-      <h1>Contatos</h1>
+      <h1>{t("contact.title")}</h1>
       <div>
         <ItemContainer isDarkTheme={isDarkTheme}>
           <a href="mailto:oscarfgmaia@gmail.com">

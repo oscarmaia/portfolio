@@ -1,0 +1,43 @@
+{
+    "header": {
+        "projects": "Projetos",
+        "contacts": "Contatos"
+    },
+    "home": {
+        "greeting": "Olá, eu sou ",
+        "rolePrefix": "Um Desenvolvedor ",
+        "roleHighlight": "Full Stack!",
+        "description": "Aqui você encontrará alguns dos meus projetos.",
+        "projectsBtn": "Projetos",
+        "resumeBtn": "Currículo",
+        "resumeLink": "local"
+    },
+    "contact": {
+        "title": "Contatos"
+    },
+    "projects": {
+        "drivent": {
+            "desc": "Um app whitelabel desenvolvido para gerenciamento de eventos."
+        },
+        "mywallet": {
+            "desc": "Um app desenvolvido para gerenciar lançamentos diários para controle de finanças."
+        },
+        "cineflex": {
+            "desc": "Um app desenvolvido para gerenciar agendamentos de ingressos em salas de cinema."
+        },
+        "trackit": {
+            "desc": "Um app para cadastro de hábitos e acompanhamento deles."
+        },
+        "zaprecall": {
+            "desc": "Um app de Flashcards, Flashcards são cartões de contém uma pergunta/afirmação na sua frente e uma resposta atrás. É possível utilizá-los para treinar sua memória com as metodologias Active Recall e Spaced Repetition"
+        },
+        "forca": {
+            "title": "Jogo da Forca",
+            "desc": "A pessoa jogadora tem que adivinhar uma palavra chutando letra por letra e, se cometer 6 erros, ela perde o jogo. Caso adivinhe a palavra antes disso, ela ganha."
+        },
+        "instagram": {
+            "title": "Clone Instagram",
+            "desc": "Pequeno clone do layout do instagram para testar a componetização do ReactJS, esse projeto foi apenas uma prova de conceito para entender como funcionava o mundo do ReactJS"
+        }
+    }
+}

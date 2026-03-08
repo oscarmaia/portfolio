@@ -1,0 +1,43 @@
+{
+    "header": {
+        "projects": "Projects",
+        "contacts": "Contact"
+    },
+    "home": {
+        "greeting": "Hi, I am ",
+        "rolePrefix": "A ",
+        "roleHighlight": "Full Stack Developer!",
+        "description": "Here you will find some of my projects.",
+        "projectsBtn": "Projects",
+        "resumeBtn": "Resume",
+        "resumeLink": "https://www.linkedin.com/in/oscarfgmaia/details/skills/"
+    },
+    "contact": {
+        "title": "Contact Me"
+    },
+    "projects": {
+        "drivent": {
+            "desc": "A whitelabel app developed for event management."
+        },
+        "mywallet": {
+            "desc": "An app developed to manage daily entries for financial control."
+        },
+        "cineflex": {
+            "desc": "An app developed to manage ticket bookings in movie theaters."
+        },
+        "trackit": {
+            "desc": "An app for registering habits and tracking them."
+        },
+        "zaprecall": {
+            "desc": "A Flashcards app. Flashcards are cards that contain a question/statement on the front and an answer on the back. You can use them to train your memory with Active Recall and Spaced Repetition methodologies."
+        },
+        "forca": {
+            "title": "Hangman Game",
+            "desc": "The player must guess a word by picking letter by letter, and if they make 6 mistakes, they lose the game. If they guess the word before that, they win."
+        },
+        "instagram": {
+            "title": "Instagram Clone",
+            "desc": "Small clone of the Instagram layout to test ReactJS componentization. This project was just a proof of concept to understand how the ReactJS world works."
+        }
+    }
+}

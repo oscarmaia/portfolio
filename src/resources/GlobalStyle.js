@@ -34,8 +34,18 @@ footer, header, hgroup, menu, nav, section {
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+#root {
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 body, button {
